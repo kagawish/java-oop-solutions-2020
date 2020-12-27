@@ -9,13 +9,17 @@ package eg.ufe.karim.article;
  *
  * @author karim
  */
-public class Article {
+public abstract class Article {
     private String ref;
     private String nom;
     
     public Article(String ref, String nom) {
         this.ref = ref;
         this.nom = nom;
+    }
+    
+    public Article(String ref) {
+        this.ref = ref;
     }
     
     public String getRef() {
@@ -37,4 +41,6 @@ public class Article {
     public String toString() {
         return "[" + this.ref + ", " + this.nom + "]";
     }
+    
+    public abstract int getPrix();
 }

@@ -17,6 +17,7 @@ public class ArticleUnitaire extends Article {
         this.prix = prix;
     }
     
+    @Override
     public int getPrix() {
         return prix;
     }

@@ -14,14 +14,20 @@ public class Lot extends Article {
     private int reduction;
     private ArticleUnitaire article;
     
-    public Lot(String ref, String nom, int nbArticles, int reduction, ArticleUnitaire article) {
-        super(ref, nom);
+    public Lot(String ref, ArticleUnitaire article, int nbArticles, int reduction) {
+        super(ref);
         this.nbArticles = nbArticles;
         this.reduction = reduction;
         this.article = article;
     }
     
-    public int calculePrix() {
+    @Override
+    public String getNom() {
+        return "Lot de " + this.nbArticles + " " + this.article.getNom();
+    }
+    
+    @Override
+    public int getPrix() {
         double totalReduction = (100 - this.reduction) / (double) 100;
         return (int) (this.article.getPrix() * this.nbArticles * totalReduction);
     }
