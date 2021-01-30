@@ -83,27 +83,6 @@ public class ArbreBinaire<E extends Comparable<? super E>> {
 		}
 	}
 
-	private void insererNonRecursif(Noeud<E> noeud) {
-		Noeud<E> noeudCourante = this.noeudRacine;
-		while (true) {
-			if (noeud.getValeur().compareTo(noeudCourante.getValeur()) <= 0) {
-				if (noeudCourante.getNoeudGauche() != null) {
-					noeudCourante = noeudCourante.getNoeudGauche();
-				} else {
-					noeudCourante.setNoeudGauche(noeud);
-					break;
-				}
-			} else {
-				if (noeudCourante.getNoeudDroit() != null) {
-					noeudCourante = noeudCourante.getNoeudDroit();
-				} else {
-					noeudCourante.setNoeudDroit(noeud);
-					break;
-				}
-			}
-		}
-	}
-
 	public String toString() {
 		return this.noeudRacine.toString();
 	}

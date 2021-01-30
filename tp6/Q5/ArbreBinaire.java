@@ -78,12 +78,10 @@ public class ArbreBinaire<E extends Comparable<? super E>> implements Iterable<E
 
 	public void inserer(E valeur) {
 		Noeud<E> noeud = new Noeud<>(valeur);
-//		this.list.add(valeur);
 
 		if (this.noeudRacine == null) {
 			this.noeudRacine = noeud;
 		} else {
-			// insererNonRecursif(noeud);
 			insererRecursif(noeud, this.noeudRacine);
 		}
 	}
@@ -100,27 +98,6 @@ public class ArbreBinaire<E extends Comparable<? super E>> implements Iterable<E
 				this.insererRecursif(noeud, noeudCourante.getNoeudDroit());
 			} else {
 				noeudCourante.setNoeudDroit(noeud);
-			}
-		}
-	}
-
-	private void insererNonRecursif(Noeud<E> noeud) {
-		Noeud<E> noeudCourante = this.noeudRacine;
-		while (true) {
-			if (this.compare(noeud.getValeur(), noeudCourante.getValeur()) <= 0) {
-				if (noeudCourante.getNoeudGauche() != null) {
-					noeudCourante = noeudCourante.getNoeudGauche();
-				} else {
-					noeudCourante.setNoeudGauche(noeud);
-					break;
-				}
-			} else {
-				if (noeudCourante.getNoeudDroit() != null) {
-					noeudCourante = noeudCourante.getNoeudDroit();
-				} else {
-					noeudCourante.setNoeudDroit(noeud);
-					break;
-				}
 			}
 		}
 	}
